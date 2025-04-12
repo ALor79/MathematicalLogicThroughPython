@@ -336,7 +336,7 @@ class Formula:
         """
         # Task 1.5
         var, rest = Formula._parse_prefix(string)
-        return var is not None and rest is ''
+        return var is not None and rest == ''
         
     @staticmethod
     def parse(string: str) -> Formula:
@@ -350,6 +350,7 @@ class Formula:
         """
         assert Formula.is_formula(string)
         # Task 1.6
+        return Formula._parse_prefix(string)[0]
 
     def polish(self) -> str:
         """Computes the polish notation representation of the current formula.
